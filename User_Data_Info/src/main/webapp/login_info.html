@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Student Registration</title>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background: linear-gradient(-45deg, #ff7e5f, #feb47b, #86a8e7, #7f7fd5);
+        background-size: 400% 400%;
+        animation: gradientBG 10s ease infinite;
+    }
+
+    @keyframes gradientBG {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+
+    .container {
+        background: rgba(255, 255, 255, 0.9);
+        padding: 30px;
+        max-width: 400px;
+        border-radius: 12px;
+        box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+        text-align: center;
+        transition: transform 0.3s ease-in-out;
+        animation: fadeIn 1s ease-in-out;
+    }
+
+    .container:hover {
+        transform: scale(1.03);
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    h1 {
+        font-size: 28px;
+        font-weight: 700;
+        background: linear-gradient(45deg, #ff7e5f, #feb47b, #86a8e7, #7f7fd5);
+        background-size: 300% 300%;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: gradientText 3s infinite alternate, scaleUp 1s ease-in-out;
+    }
+
+    @keyframes gradientText {
+        0% { background-position: 0% 50%; }
+        100% { background-position: 100% 50%; }
+    }
+
+    @keyframes scaleUp {
+        from { transform: scale(0.8); opacity: 0; }
+        to { transform: scale(1); opacity: 1; }
+    }
+
+    table {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    td {
+        padding: 10px;
+        text-align: left;
+    }
+
+    /* Dynamic Text Box Styles */
+    input[type="text"], input[type="email"], input[type="tel"] {
+        width: 100%;
+        padding: 12px;
+        border: 2px solid #ccc;
+        border-radius: 6px;
+        transition: all 0.3s ease-in-out;
+        background: #f9f9f9;
+        opacity: 0;
+        animation: fadeInInput 1s ease-in-out forwards;
+    }
+
+    /* Fade-in Animation for Inputs */
+    @keyframes fadeInInput {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Glowing and Expanding Effect on Focus */
+    input[type="text"]:focus, input[type="email"]:focus, input[type="tel"]:focus {
+        border-color: #ff7e5f;
+        box-shadow: 0px 0px 12px rgba(255, 126, 95, 0.6);
+        background: #fff3e0;
+        transform: scale(1.05);
+        outline: none;
+    }
+
+    .buttons {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+    }
+
+    input[type="submit"], input[type="reset"] {
+        width: 48%;
+        padding: 12px;
+        border: none;
+        border-radius: 6px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: 0.3s;
+        color: white;
+        position: relative;
+        overflow: hidden;
+    }
+
+    input[type="submit"] {
+        background: #4CAF50;
+    }
+
+    input[type="reset"] {
+        background: #f44336;
+    }
+
+    input[type="submit"]:hover {
+        background: #45a049;
+    }
+
+    input[type="reset"]:hover {
+        background: #d32f2f;
+    }
+
+    /* Ripple Effect on Button Click */
+    input[type="submit"]:active::after,
+    input[type="reset"]:active::after {
+        content: "";
+        position: absolute;
+        width: 200%;
+        height: 200%;
+        background: rgba(255, 255, 255, 0.3);
+        border-radius: 50%;
+        transform: scale(0);
+        animation: ripple 0.4s linear;
+    }
+
+    @keyframes ripple {
+        to {
+            transform: scale(1);
+            opacity: 0;
+        }
+    }
+</style>
+</head>
+<body>
+    <div class="container">
+        <h1>Register Now</h1>
+        <form method="GET" action="">
+            <table>
+                <tr>
+                    <td>User ID:</td>
+                    <td><input type="text" name="uid" required></td>
+                </tr>
+                <tr>
+                    <td>First Name:</td>
+                    <td><input type="text" name="fname" required></td>
+                </tr>
+                <tr>
+                    <td>Last Name:</td>
+                    <td><input type="text" name="lname" required></td>
+                </tr>
+                <tr>
+                    <td>Email:</td>
+                    <td><input type="email" name="email" required></td>
+                </tr>
+                <tr>
+                    <td>Phone Number:</td>
+                    <td><input type="tel" name="phone" required></td>
+                </tr>
+            </table>
+            <div class="buttons">
+                <input type="submit" value="Submit">
+                <input type="reset" value="Reset">
+            </div>
+        </form>
+    </div>
+</body>
+</html>
